@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101528">
+  <title>Contact — A little welcome</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: #f7f7ff;
+      background: #101528;
+      font-synthesis: none;
+      text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    * { box-sizing: border-box; }
+    body {
+      min-width: 320px;
+      min-height: 100vh;
+      margin: 0;
+      display: grid;
+      place-items: center;
+      background: radial-gradient(ellipse at 18% 22%, rgb(104 80 255 / 20%), transparent 36%), radial-gradient(ellipse at 83% 78%, rgb(28 205 190 / 14%), transparent 34%), #101528;
+    }
+    .scene { width: min(100% - 2rem, 980px); padding: clamp(1.5rem, 6vw, 4rem); }
+    .site-nav { display: flex; justify-content: flex-end; gap: 0.5rem; margin: 0 0 1rem; }
+    .site-nav a { padding: 0.65rem 0.9rem; border: 1px solid transparent; border-radius: 999px; color: #cbd1e8; font-size: 0.9rem; text-decoration: none; transition: background 160ms ease, border-color 160ms ease, color 160ms ease; }
+    .site-nav a:hover, .site-nav a:focus-visible { border-color: rgb(255 255 255 / 15%); color: #fff; background: rgb(255 255 255 / 8%); }
+    main { padding: clamp(2rem, 8vw, 5.5rem); border: 1px solid rgb(255 255 255 / 13%); border-radius: 1.5rem; background: linear-gradient(135deg, rgb(255 255 255 / 9%), rgb(255 255 255 / 3%)); box-shadow: 0 30px 100px rgb(0 0 0 / 35%), inset 0 1px rgb(255 255 255 / 8%); backdrop-filter: blur(18px); animation: arrive 700ms cubic-bezier(.2,.8,.2,1) both; }
+    .eyebrow { display: flex; align-items: center; gap: 0.65rem; margin: 0 0 1.5rem; color: #b8c0dc; font-size: 0.75rem; font-weight: 650; letter-spacing: 0.17em; text-transform: uppercase; }
+    .eyebrow::before { width: 1.6rem; height: 1px; background: #8b7cff; content: ""; }
+    h1 { margin: 0; font-size: clamp(3rem, 9vw, 6rem); font-weight: 720; letter-spacing: -0.075em; line-height: 0.98; }
+    h1 span { color: transparent; background: linear-gradient(100deg, #a99aff 5%, #74e5da 95%); background-clip: text; -webkit-background-clip: text; }
+    .intro { max-width: 40rem; margin: 1.75rem 0 0; color: #b8c0dc; font-size: clamp(1rem, 2vw, 1.15rem); line-height: 1.8; }
+    form { display: grid; gap: 1rem; max-width: 38rem; margin-top: 2rem; }
+    label { display: grid; gap: 0.5rem; color: #e2e5f2; font-size: 0.9rem; }
+    input, textarea { width: 100%; padding: 0.85rem 1rem; border: 1px solid rgb(255 255 255 / 16%); border-radius: 0.75rem; color: #f7f7ff; background: rgb(10 15 31 / 55%); font: inherit; }
+    textarea { min-height: 7rem; resize: vertical; }
+    input:focus, textarea:focus { outline: 2px solid #8b7cff; outline-offset: 2px; }
+    button { justify-self: start; padding: 0.85rem 1.2rem; border: 0; border-radius: 999px; color: #101528; background: linear-gradient(100deg, #b5a7ff, #82e8dc); font: inherit; font-weight: 700; cursor: pointer; }
+    .note { margin: 0; color: #9ca6c5; font-size: 0.85rem; line-height: 1.6; }
+    @keyframes arrive { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: 0.01ms !important; } }
+  </style>
+</head>
+<body>
+  <div class="scene">
+    <nav class="site-nav" aria-label="Main navigation">
+      <a href="hello-world.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="contact.html" aria-current="page">Contact</a>
+    </nav>
+    <main>
+      <p class="eyebrow">Say hello</p>
+      <h1>Let’s <span>talk.</span></h1>
+      <p class="intro">Have a question or an idea to share? Write a note below.</p>
+      <form action="#" method="get">
+        <label for="name">Your name<input id="name" name="name" autocomplete="name" required></label>
+        <label for="email">Your email<input id="email" name="email" type="email" autocomplete="email" required></label>
+        <label for="message">Message<textarea id="message" name="message" required></textarea></label>
+        <button type="submit">Send a note</button>
+        <p class="note">This is a front-end demo form; connect it to a form service or server to receive messages.</p>
+      </form>
+    </main>
+  </div>
+</body>
+</html>
