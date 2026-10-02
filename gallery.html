@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101528">
+  <title>Gallery — A little welcome</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: #f7f7ff;
+      background: #101528;
+      font-synthesis: none;
+      text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    * { box-sizing: border-box; }
+    body {
+      min-width: 320px;
+      min-height: 100vh;
+      margin: 0;
+      display: grid;
+      place-items: center;
+      background: radial-gradient(ellipse at 18% 22%, rgb(104 80 255 / 20%), transparent 36%), radial-gradient(ellipse at 83% 78%, rgb(28 205 190 / 14%), transparent 34%), #101528;
+    }
+    .scene { width: min(100% - 2rem, 1100px); padding: clamp(1.25rem, 5vw, 3.5rem); }
+    .site-nav { display: flex; justify-content: flex-end; flex-wrap: wrap; gap: 0.35rem; margin: 0 0 1rem; }
+    .site-nav a { padding: 0.65rem 0.9rem; border: 1px solid transparent; border-radius: 999px; color: #cbd1e8; font-size: 0.9rem; text-decoration: none; transition: background 160ms ease, border-color 160ms ease, color 160ms ease; }
+    .site-nav a:hover, .site-nav a:focus-visible { border-color: rgb(255 255 255 / 15%); color: #fff; background: rgb(255 255 255 / 8%); }
+    main { padding: clamp(1.5rem, 6vw, 4rem); border: 1px solid rgb(255 255 255 / 13%); border-radius: 1.5rem; background: linear-gradient(135deg, rgb(255 255 255 / 9%), rgb(255 255 255 / 3%)); box-shadow: 0 30px 100px rgb(0 0 0 / 35%), inset 0 1px rgb(255 255 255 / 8%); backdrop-filter: blur(18px); animation: arrive 700ms cubic-bezier(.2,.8,.2,1) both; }
+    .eyebrow { display: flex; align-items: center; gap: 0.65rem; margin: 0 0 1.1rem; color: #b8c0dc; font-size: 0.75rem; font-weight: 650; letter-spacing: 0.17em; text-transform: uppercase; }
+    .eyebrow::before { width: 1.6rem; height: 1px; background: #8b7cff; content: ""; }
+    h1 { margin: 0; font-size: clamp(3rem, 9vw, 6rem); font-weight: 720; letter-spacing: -0.075em; line-height: 0.98; }
+    h1 span { color: transparent; background: linear-gradient(100deg, #a99aff 5%, #74e5da 95%); background-clip: text; -webkit-background-clip: text; }
+    .intro { max-width: 40rem; margin: 1.25rem 0 2rem; color: #b8c0dc; font-size: 1.05rem; line-height: 1.75; }
+    .gallery { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; }
+    figure { min-width: 0; margin: 0; overflow: hidden; border: 1px solid rgb(255 255 255 / 12%); border-radius: 1rem; background: rgb(8 13 29 / 45%); transition: transform 180ms ease, border-color 180ms ease; }
+    figure:hover { transform: translateY(-4px); border-color: rgb(255 255 255 / 28%); }
+    .art { display: grid; min-height: 190px; place-items: center; overflow: hidden; position: relative; }
+    .art::before, .art::after { position: absolute; content: ""; border-radius: 50%; }
+    .art::before { width: 9rem; aspect-ratio: 1; background: rgb(255 255 255 / 18%); filter: blur(1px); }
+    .art::after { width: 5.5rem; aspect-ratio: 1; border: 1px solid rgb(255 255 255 / 45%); }
+    .art-one { background: linear-gradient(145deg, #5145a8, #e084a8 55%, #ffc995); }
+    .art-two { background: linear-gradient(145deg, #164e70, #26bcae 58%, #d2eea2); }
+    .art-three { background: linear-gradient(145deg, #171f4c, #7455a9 52%, #f38b79); }
+    .art-two::before { width: 7rem; transform: translate(-1.5rem, 1rem); }
+    .art-two::after { width: 4.2rem; transform: translate(1.5rem, -1rem); }
+    .art-three::before { width: 6rem; transform: translate(1.2rem, -1rem); }
+    .art-three::after { width: 10rem; }
+    figcaption { padding: 1rem 1.1rem 1.1rem; }
+    figcaption strong { display: block; font-size: 0.95rem; }
+    figcaption span { display: block; margin-top: 0.35rem; color: #aab3d0; font-size: 0.82rem; }
+    @keyframes arrive { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+    @media (max-width: 680px) { .gallery { grid-template-columns: 1fr; } .art { min-height: 220px; } }
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; } }
+  </style>
+</head>
+<body>
+  <div class="scene">
+    <nav class="site-nav" aria-label="Main navigation">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="gallery.html" aria-current="page">Gallery</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <main>
+      <p class="eyebrow">A few things to see</p>
+      <h1>The <span>gallery.</span></h1>
+      <p class="intro">A small collection of color, shape, and inspiration. These abstract pieces are made with CSS, so the page needs no external images.</p>
+      <section class="gallery" aria-label="Abstract artwork collection">
+        <figure>
+          <div class="art art-one" role="img" aria-label="Warm pink and violet abstract gradient with glowing circles"></div>
+          <figcaption><strong>First light</strong><span>Warmth in the beginning</span></figcaption>
+        </figure>
+        <figure>
+          <div class="art art-two" role="img" aria-label="Teal and green abstract gradient with overlapping circles"></div>
+          <figcaption><strong>Open water</strong><span>A little room to breathe</span></figcaption>
+        </figure>
+        <figure>
+          <div class="art art-three" role="img" aria-label="Indigo and coral abstract gradient with geometric rings"></div>
+          <figcaption><strong>After hours</strong><span>Color after the sun goes down</span></figcaption>
+        </figure>
+      </section>
+    </main>
+  </div>
+</body>
+</html>
